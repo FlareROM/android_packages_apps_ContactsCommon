@@ -44,7 +44,7 @@ public class BlockContactActivity extends Activity implements BlockContactDialog
             return;
         }
 
-        mBlockContactHelper = new BlockContactHelper(this, new LookupProviderImpl(this));
+        mBlockContactHelper = new BlockContactHelper(this);
         mBlockContactHelper.setContactInfo(phoneNumber);
     }
 
@@ -57,6 +57,11 @@ public class BlockContactActivity extends Activity implements BlockContactDialog
                         BlockContactHelper.BlockOperation.BLOCK
         );
         f.show(getFragmentManager(), "block_contact");
+    }
+
+    @Override
+    public void onBlockCancelled() {
+        // STUB
     }
 
     @Override
